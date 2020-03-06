@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "1013722734776",
+    "firebase_url": "https://flutter-fun-chat.firebaseio.com",
+    "project_id": "flutter-fun-chat",
+    "storage_bucket": "flutter-fun-chat.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1013722734776:android:5021c20d775603b11c944d",
+        "android_client_info": {
+          "package_name": "com.soupaul.fun_chat"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1013722734776-loe3codr38g6eifaip8m9njqvo4v5lns.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBZS-Qwcpbis7k6LzSJBUd4sBTm4cvJeF8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1013722734776-loe3codr38g6eifaip8m9njqvo4v5lns.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
