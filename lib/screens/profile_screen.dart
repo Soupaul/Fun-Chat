@@ -36,7 +36,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
                               width: MediaQuery.of(context).size.width * 0.1),
                           CircleAvatar(
                             radius: 75.0,
-                            backgroundImage: AssetImage('images/greg.jpg'),
+                            backgroundImage:
+                                NetworkImage(data['profileImageUrl']),
                           ),
                           IconButton(
                             icon: Icon(Icons.edit, color: Colors.lightBlue),
@@ -66,11 +67,12 @@ class _ProfileScreenState extends State<ProfileScreen> {
                           IconButton(
                             icon: Icon(Icons.edit, color: Colors.lightBlue),
                             onPressed: () {
-                              Firestore.instance.runTransaction((transaction) async{
-                                DocumentSnapshot freshDoc = await transaction.get(data.reference);
-                                await transaction.update(freshDoc.reference, {
-                                  'name': freshDoc['name']
-                                });
+                              Firestore.instance
+                                  .runTransaction((transaction) async {
+                                DocumentSnapshot freshDoc =
+                                    await transaction.get(data.reference);
+                                await transaction.update(freshDoc.reference,
+                                    {'name': freshDoc['name']});
                               });
                             },
                           ),
@@ -104,12 +106,13 @@ class _ProfileScreenState extends State<ProfileScreen> {
               ),
             ],
           );
-        } else
+        } else {
           return Center(
               child: Text(
             'Loading...',
             style: TextStyle(color: Colors.white),
           ));
+        }
       },
     );
     return widget;

@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:fun_chat/models/message_model.dart';
 import 'package:fun_chat/screens/profile_screen.dart';
@@ -15,6 +16,12 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   final choices = ['Search', 'Log Out'];
+  final _firestore = Firestore.instance;
+
+  Stream<DocumentSnapshot> getStream() async* {
+    final uid = await AuthService.getCurrentUID();
+    yield* _firestore.collection('users').document(uid).snapshots();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -25,10 +32,23 @@ class _HomeScreenState extends State<HomeScreen> {
           margin: EdgeInsets.only(left: 5.0),
           child: GestureDetector(
             onTap: () => Navigator.pushNamed(context, ProfileScreen.id),
-            child: CircleAvatar(
-              radius: 20.0,
-              backgroundImage: AssetImage(currentUser.imageUrl),
-            ),
+            child: StreamBuilder(
+                stream: getStream(),
+                builder: (context, snapshot) {
+                  if (snapshot.hasData) {
+                    DocumentSnapshot ds = snapshot.data;
+                    return CircleAvatar(
+                      radius: 20.0,
+                      backgroundImage: NetworkImage(ds['profileImageUrl']),
+                    );
+                  } else {
+                    return Center(
+                        child: Text(
+                      'Loading...',
+                      style: TextStyle(color: Colors.white),
+                    ));
+                  }
+                }),
           ),
         ),
 

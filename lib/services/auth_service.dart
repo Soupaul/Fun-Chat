@@ -13,7 +13,7 @@ class AuthService {
   }
 
   static void signUpUser(
-      BuildContext context, String name, String email, String password) async {
+      BuildContext context, String name, String email, String password, String profileImageUrl) async {
     try {
       AuthResult authResult = await _auth.createUserWithEmailAndPassword(
           email: email, password: password);
@@ -23,7 +23,7 @@ class AuthService {
         _firestore.collection('/users').document(signedInUser.uid).setData({
           'name': name,
           'email': email,
-          'profileImageUrl': '',
+          'profileImageUrl': profileImageUrl,
         });
         Navigator.pushReplacementNamed(context, HomeScreen.id);
       }
