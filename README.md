@@ -37,6 +37,12 @@ Head over to the official Flutter website at (https://flutter.dev/docs/get-start
 
 Head over to the official website for Android Studio at (https://developer.android.com/studio/install) and follow the steps for particular OS.
 
+### Cloning and Running the project
+
+```git clone https://github.com/Soupaul/Fun-Chat.git
+```
+Open Android Studio and open pubspec.yaml and click on get dependencies.
+Run the project on an AVD or an Android Mobile Device to use the App.
 
 
 
