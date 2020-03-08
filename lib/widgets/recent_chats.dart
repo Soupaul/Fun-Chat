@@ -1,8 +1,10 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:fun_chat/models/message_model.dart';
-import 'package:fun_chat/screens/chat_screen.dart';
+import 'package:fun_chat/screens/chatbox.dart';
 
 class RecentChats extends StatelessWidget {
+  final _firestore = Firestore.instance;
+
   @override
   Widget build(BuildContext context) {
     return Expanded(
@@ -19,111 +21,50 @@ class RecentChats extends StatelessWidget {
             topLeft: Radius.circular(30.0),
             topRight: Radius.circular(30.0),
           ),
-          child: ListView.builder(
-              itemCount: chats.length,
-              itemBuilder: (BuildContext context, int index) {
-                var chat = chats[index];
-
-                return GestureDetector(
-                  onTap: () => Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (_) => ChatScreen(
-                        user: chat.sender,
-                      ),
-                    ),
-                  ),
-                  child: Container(
-                    margin: EdgeInsets.only(top: 5.0, bottom: 5.0, right: 20.0),
-                    padding:
-                        EdgeInsets.symmetric(horizontal: 20.0, vertical: 10.0),
-                    decoration: BoxDecoration(
-                      color: chat.unread ? Color(0xFF263238) : Colors.black,
-                      borderRadius: BorderRadius.only(
-                        topRight: Radius.circular(20.0),
-                        bottomRight: Radius.circular(20.0),
-                      ),
-                    ),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: <Widget>[
-                        Row(
-                          children: <Widget>[
-                            CircleAvatar(
-                              radius: 35.0,
-                              backgroundImage: AssetImage(chat.sender.imageUrl),
-                            ),
-                            SizedBox(
-                              width: 10.0,
-                            ),
-                            Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: <Widget>[
-                                Text(
-                                  chat.sender.name,
-                                  style: TextStyle(
-                                    fontSize: 15.0,
-                                    color: Theme.of(context).primaryColor,
-                                    fontWeight: FontWeight.bold,
-                                  ),
+          child: StreamBuilder<QuerySnapshot>(
+              stream: _firestore.collection('chatbox').snapshots(),
+              builder: (context, snapshot) {
+                if (snapshot.hasData) {
+                  return ListView.builder(
+                      itemCount: snapshot.data.documents.length,
+                      itemBuilder: (BuildContext context, int index) {
+                        DocumentSnapshot ds = snapshot.data.documents[index];
+                        return GestureDetector(
+                          onTap: () => Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (_) => ChatBox(
+                                  Name: ds['name'],
                                 ),
-                                SizedBox(
-                                  height: 5.0,
-                                ),
-                                Container(
-                                  width:
-                                      MediaQuery.of(context).size.width * 0.45,
+                              )),
+                          child: Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Container(
+                              decoration: BoxDecoration(
+                                color: Color(0xFF263238),
+                                borderRadius:
+                                    BorderRadius.all(Radius.circular(15.0)),
+                              ),
+                              child: Padding(
+                                padding: EdgeInsets.symmetric(
+                                    horizontal: 20.0, vertical: 30.0),
+                                child: Center(
                                   child: Text(
-                                    chat.text,
+                                    ds['name'],
                                     style: TextStyle(
-                                      fontSize: 14.0,
-                                      color: Colors.white,
-                                      fontWeight: FontWeight.w600,
+                                      fontSize: 20.0,
+                                      color: Theme.of(context).primaryColor,
+                                      fontWeight: FontWeight.bold,
                                     ),
-                                    overflow: TextOverflow.ellipsis,
                                   ),
                                 ),
-                              ],
-                            ),
-                          ],
-                        ),
-                        Column(
-                          children: <Widget>[
-                            Text(
-                              chat.time,
-                              style: TextStyle(
-                                color: Colors.grey,
-                                fontSize: 14.0,
-                                fontWeight: FontWeight.bold,
                               ),
                             ),
-                            SizedBox(
-                              height: 5.0,
-                            ),
-                            chat.unread
-                                ? Container(
-                                    width: 40.0,
-                                    height: 20.0,
-                                    decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.circular(30.0),
-                                      color: Theme.of(context).primaryColor,
-                                    ),
-                                    alignment: Alignment.center,
-                                    child: Text(
-                                      'NEW',
-                                      style: TextStyle(
-                                        fontSize: 12.0,
-                                        fontWeight: FontWeight.bold,
-                                        color: Color(0xFF263238),
-                                      ),
-                                    ))
-                                : Text(''),
-                          ],
-                        ),
-                      ],
-                    ),
-                  ),
-                );
+                          ),
+                        );
+                      });
+                }
+                return CircularProgressIndicator();
               }),
         ),
       ),

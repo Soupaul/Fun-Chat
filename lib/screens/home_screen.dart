@@ -6,6 +6,7 @@ import 'package:fun_chat/services/auth_service.dart';
 import 'package:fun_chat/widgets/favourite_contacts.dart';
 import 'package:fun_chat/widgets/category_selector.dart';
 import 'package:fun_chat/widgets/recent_chats.dart';
+import 'package:fun_chat/widgets/addChatboxDialog.dart';
 
 class HomeScreen extends StatefulWidget {
   static final String id = 'home_screen';
@@ -42,11 +43,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       backgroundImage: NetworkImage(ds['profileImageUrl']),
                     );
                   } else {
-                    return Center(
-                        child: Text(
-                      'Loading...',
-                      style: TextStyle(color: Colors.white),
-                    ));
+                    return CircularProgressIndicator();
                   }
                 }),
           ),
@@ -106,13 +103,21 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
               child: Column(
                 children: <Widget>[
-                  FavouriteContacts(),
                   RecentChats(),
                 ],
               ),
             ),
           ),
         ],
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          AddDialog(context);
+        },
+        child: Icon(
+          Icons.add,
+        ),
+        backgroundColor: Theme.of(context).primaryColor,
       ),
     );
   }
