@@ -39,7 +39,9 @@ Head over to the official website for Android Studio at (https://developer.andro
 
 ### Cloning and Running the project
 
-```git clone https://github.com/Soupaul/Fun-Chat.git
+```
+git clone https://github.com/Soupaul/Fun-Chat.git
+
 ```
 Open Android Studio and open pubspec.yaml and click on get dependencies.
 Run the project on an AVD or an Android Mobile Device to use the App.
