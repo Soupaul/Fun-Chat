@@ -10,15 +10,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ec15a651-bede-45c5-994d-7416aefc0ebd" name="Default Changelist" comment="Revert &quot;hh&quot;&#10;&#10;This reverts commit f4461783">
-      <change afterPath="$PROJECT_DIR$/lib/screens/chatbox.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/widgets/addChatboxDialog.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/screens/home_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/screens/home_screen.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/widgets/category_selector.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/widgets/category_selector.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/widgets/recent_chats.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/widgets/recent_chats.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.dart_tool/" />
     <ignored path="$PROJECT_DIR$/.idea/" />
@@ -59,14 +52,23 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/lib/widgets/recent_chats.dart">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="288">
-              <caret line="39" column="36" lean-forward="true" selection-start-line="39" selection-start-column="36" selection-end-line="39" selection-end-column="36" />
+            <state relative-caret-position="219">
+              <caret line="39" column="36" selection-start-line="39" selection-start-column="36" selection-end-line="39" selection-end-column="36" />
               <folding>
                 <element signature="e#0#54#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/README.md">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="357">
+              <caret line="21" column="71" selection-start-line="21" selection-start-column="71" selection-end-line="21" selection-end-column="71" />
             </state>
           </provider>
         </entry>
@@ -124,6 +126,7 @@
         <option value="$PROJECT_DIR$/lib/screens/home_screen.dart" />
         <option value="$PROJECT_DIR$/lib/widgets/category_selector.dart" />
         <option value="$PROJECT_DIR$/lib/widgets/recent_chats.dart" />
+        <option value="$PROJECT_DIR$/README.md" />
       </list>
     </option>
   </component>
@@ -260,9 +263,9 @@
       <window_info id="Capture Tool" order="5" />
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info id="Structure" order="7" side_tool="true" />
-      <window_info content_ui="combo" id="Project" order="8" visible="true" weight="0.1953514" />
+      <window_info active="true" content_ui="combo" id="Project" order="8" visible="true" weight="0.1953514" />
       <window_info anchor="bottom" id="Find" order="0" weight="0.3297414" />
-      <window_info active="true" anchor="bottom" id="Run" order="1" visible="true" weight="0.32937366" />
+      <window_info anchor="bottom" id="Run" order="1" weight="0.32937366" />
       <window_info anchor="bottom" id="Logcat" order="2" weight="0.32937366" />
       <window_info anchor="bottom" id="TODO" order="3" weight="0.3297414" />
       <window_info anchor="bottom" id="Debug" order="4" weight="0.32937366" />
@@ -428,9 +431,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/lib/widgets/display_screen.dart" />
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/android/build.gradle">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
@@ -551,11 +551,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/lib/widgets/recent_chats.dart">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="288">
-          <caret line="39" column="36" lean-forward="true" selection-start-line="39" selection-start-column="36" selection-end-line="39" selection-end-column="36" />
+        <state relative-caret-position="219">
+          <caret line="39" column="36" selection-start-line="39" selection-start-column="36" selection-end-line="39" selection-end-column="36" />
           <folding>
             <element signature="e#0#54#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="21" column="71" selection-start-line="21" selection-start-column="71" selection-end-line="21" selection-end-column="71" />
         </state>
       </provider>
     </entry>

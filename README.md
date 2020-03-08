@@ -1,6 +1,6 @@
-# fun_chat
+# Fun-Chat
 
-A simple chatting application
+A simple chatting application made using Flutter and Firebase
 
 ## Getting Started
 
@@ -14,3 +14,9 @@ A few resources to get you started if this is your first Flutter project:
 For help getting started with Flutter, view our
 [online documentation](https://flutter.dev/docs), which offers tutorials,
 samples, guidance on mobile development, and a full API reference.
+
+## Prerequisites
+
+- [Flutter SDK)
+- [Android Virtual Device or Android Mobile Device)
+- [A text editor like Visual Studio Code or Android Studio(preferably))
